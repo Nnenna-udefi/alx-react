@@ -5,9 +5,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    header: './src/header/header.js',
-    body: './src/body/body.js',
-    footer: './src/footer/footer.js'
+    header: './modules/header/header.js',
+    body: './modules/body/body.js',
+    footer: './modules/footer/footer.js'
   },
   performance: {
     maxAssetSize: 1000000,
