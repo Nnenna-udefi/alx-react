@@ -21,8 +21,9 @@ $(document).ready(function() {
     $displayCount.text(`${count} clicks on the button`);
   }
   // Use jQuery's .on() method to attach the event listener
-  $btn.on('click', _.debounce(updateCounter, 500,
-    { leading: true, trailing: false }));
+  $btn.on('click',
+  _.debounce( updateCounter, 500, { leading: true, trailing: false })
+);
 })
 
 
