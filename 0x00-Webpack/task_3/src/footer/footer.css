@@ -1,0 +1,9 @@
+p:last-child {
+    background-color: black;
+    color: white;
+    position: fixed;
+    padding: 3rem;
+    text-align: center;
+    width: 100%;
+    margin-top : 2rem;
+}

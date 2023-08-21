@@ -1,0 +1,18 @@
+body #count {
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 2rem;
+    color: green;
+}
+
+body button {
+    background: white;
+    border: 2px solid rgb(65, 65, 195);
+    padding: 1rem 1.2rem;
+    border-radius: 3px;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(65, 65, 195);
+}
