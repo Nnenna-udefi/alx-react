@@ -9,7 +9,6 @@ $(document).ready(function() {
   $('body').append('<p id="count"></p>');
   $('body').append('<p>Copyright - Holberton School</p>');
 
-
   let count = 0;
   // select the button element
   let $btn = $('button');
@@ -22,7 +21,7 @@ $(document).ready(function() {
     $displayCount.text(`${count} clicks on the button`);
   }
   // Use jQuery's .on() method to attach the event listener
-  $btn.on('click', _.debounce(updateCounter, 300,
+  $btn.on('click', _.debounce(updateCounter, 500,
     { leading: true, trailing: false }));
 })
 
