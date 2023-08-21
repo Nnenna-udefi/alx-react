@@ -28,18 +28,19 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
+          "file-loader",
           {
-            loader: 'file-loader',
+            loader: "image-webpack-loader",
             options: {
-              outputPath: 'assets',
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      }
-    ]
+              bypassOnDebug: true,
+              disable: true,
+            },
+          },
+        ],
+      },
+    ],
   },
 
   optimization: {
