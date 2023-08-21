@@ -23,7 +23,3 @@ $(document).ready(function() {
   // Use jQuery's .on() method to attach the event listener
   $btn.on('click', _.debounce(updateCounter, 300));
 })
-
-
-
-
