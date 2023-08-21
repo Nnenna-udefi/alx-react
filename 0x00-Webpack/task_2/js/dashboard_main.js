@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import debounce from 'lodash/debounce';
+import _ from 'lodash';
 import '../css/main.css';
 
 $(document).ready(function() {
@@ -22,7 +22,8 @@ $(document).ready(function() {
     $displayCount.text(`${count} clicks on the button`);
   }
   // Use jQuery's .on() method to attach the event listener
-  $btn.on('click', debounce(updateCounter, 300));
+  $btn.on('click', _.debounce(updateCounter, 300,
+    { leading: true, trailing: false }));
 })
 
 
