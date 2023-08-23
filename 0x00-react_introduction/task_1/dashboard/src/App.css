@@ -1,0 +1,22 @@
+.App-header {
+  display: flex;
+  border-bottom: 2px solid rgb(217, 37, 37);
+}
+.App-header h1 {
+  color: rgb(217, 37, 37);
+  align-self: center;
+}
+img {
+  width: 20%;
+}
+.App-body {
+  height: 50vh;
+  border-bottom: 2px solid rgb(217, 37, 37);
+}
+.App-body p {
+  padding: 1.5rem 3rem 0;
+}
+.App-footer {
+  text-align: center;
+  font-style: italic;
+}
