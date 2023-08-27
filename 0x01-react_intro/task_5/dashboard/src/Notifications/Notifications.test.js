@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Notifications from "./Notifications";
+import '../../config/setupTests';
 
 describe('<Notifications />', () => {
     it('renders without crashing', () => {
