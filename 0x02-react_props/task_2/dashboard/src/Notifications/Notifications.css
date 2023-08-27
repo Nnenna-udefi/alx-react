@@ -4,10 +4,10 @@
     padding: 1rem;
 }
 
-.Notifications li[data-priority="default"] {
+[data-notification-type="default"]  {
     color: blue;
 }
 
-.Notifications li {
+[data-notification-type="urgent"], [data-urgent]  {
     color: red;
 }
