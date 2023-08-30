@@ -1,1 +1,1 @@
-# Alx React tasks
+ React Component
