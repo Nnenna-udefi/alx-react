@@ -47,4 +47,59 @@ describe('<Notifications />', () => {
         expect(wrapper.text()).not.toContain('No new notification for now');
       });
 
-})
+      it('should not rerender with the same list of notifications', () => {
+        const listNotifications = [
+          { id: 1, type: 'default', value: 'New notification' },
+          { id: 2, type: 'urgent', value: 'Urgent notification' },
+        ];
+    
+        const wrapper = shallow(<Notifications listNotifications={listNotifications} />);
+        // Keep a reference to the instance of the component
+        const instance = wrapper.instance();
+        // Spy on the render method
+        const renderSpy = jest.spyOn(instance, 'render');
+        // Update props with the same list
+        wrapper.setProps({ listNotifications });
+        // Verify that the render method was not called again
+        expect(renderSpy).toHaveBeenCalledTimes(1);
+        // Clean up the spy
+        renderSpy.mockRestore();
+      });
+    
+      it('should rerender with a longer list of notifications', () => {
+        const initialListNotifications = [
+          { id: 1, type: 'default', value: 'New notification' },
+        ];
+    
+        const updatedListNotifications = [
+          { id: 1, type: 'default', value: 'New notification' },
+          { id: 2, type: 'urgent', value: 'Urgent notification' },
+        ];
+    
+        const wrapper = shallow(<Notifications listNotifications={initialListNotifications} />); 
+        // Keep a reference to the instance of the component
+        const instance = wrapper.instance();
+        // Spy on the render method
+        const renderSpy = jest.spyOn(instance, 'render');
+        // Update props with a longer list
+        wrapper.setProps({ listNotifications: updatedListNotifications });
+        // Verify that the render method was called again
+        expect(renderSpy).toHaveBeenCalledTimes(2);
+        // Clean up the spy
+        renderSpy.mockRestore();
+      });
+});
+
+describe("onclick event behaves as it should", () => {
+    it("should call console.log with the right message", () => {
+      const wrapper = shallow(<Notifications />);
+      const spy = jest.spyOn(console, "log").mockImplementation();
+  
+      wrapper.instance().markAsRead = spy;
+      wrapper.instance().markAsRead(1);
+      expect(wrapper.instance().markAsRead).toBeCalledWith(1);
+      expect(spy).toBeCalledTimes(1);
+      expect(spy).toBeCalledWith(1);
+      spy.mockRestore();
+    });
+});  
