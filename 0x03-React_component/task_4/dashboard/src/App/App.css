@@ -1,0 +1,6 @@
+.header-section {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(217, 37, 37);
+}
