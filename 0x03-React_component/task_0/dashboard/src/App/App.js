@@ -25,8 +25,10 @@ class App extends Component {
         {id: 3, type: 'urgent', value: null, html: { __html : getLatestNotification()}, },
       ],
     };
-  }
-  
+
+   
+    }
+
   render() {
     const { isLoggedIn } = this.props;
     const { listCourses, listNotifications } = this.state;
