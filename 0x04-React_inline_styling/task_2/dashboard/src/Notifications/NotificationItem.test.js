@@ -1,7 +1,14 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
 import NotificationItem from "./NotificationItem";
-import '../../config/setupTests';
+import { shallow } from "enzyme";
+import { StyleSheetTestUtils } from "aphrodite";
+
+beforeEach(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+});
 
 describe("rendering components", () => {
   it("renders NotificationItem component without crashing", () => {
@@ -23,16 +30,15 @@ describe("rendering components", () => {
     wrapper.setProps({ html: "<u>test</u>" });
     expect(wrapper.html()).toEqual('<li data-urgent="true"><u>test</u></li>');
   });
-
 });
 
-describe('list onclick event behaves as it should', () => {
-  it('pass a spy as the markAsRead property and call the console log', () => {
+describe("onclick event behaves as it should", () => {
+  it("should call console.log", () => {
     const wrapper = shallow(<NotificationItem />);
     const spy = jest.fn();
 
-    wrapper.setProps({ value: 'test', markAsRead: spy, id: 1});
-    wrapper.find('li').props().onClick();
+    wrapper.setProps({ value: "test item", markAsRead: spy, id: 1 });
+    wrapper.find("li").props().onClick();
     expect(spy).toBeCalledTimes(1);
     expect(spy).toBeCalledWith(1);
     spy.mockRestore();

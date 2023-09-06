@@ -1,21 +1,21 @@
 import React from 'react';
-import './CourseList.css';
+import { StyleSheet, css } from 'aphrodite';
 import PropTypes from 'prop-types';
 
-
-const rowColor = {
+const styles = StyleSheet.create({
+  firstRowColor: {
     backgroundColor: '#f5f5f5ab'
-  };
+  },
 
-const headerRowColor = {
+  headerRowColor: {
     backgroundColor: '#deb5b545'
-  };
+  },
 
+})
 
 const CourseListRow = ({ isHeader=false, textFirstCell, textSecondCell=null }) => {
-  const rowStyle = isHeader ? headerRowColor : rowColor;
    return (
-    <tr style={rowStyle}> 
+    <tr className={isHeader ? css(styles.headerRowColor) : css(styles.firstRowColor)}> 
       {isHeader ? (
         textSecondCell === null ? (
           <th colSpan={2}>{textFirstCell}</th>

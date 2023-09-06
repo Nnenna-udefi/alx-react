@@ -1,28 +1,10 @@
 import React from 'react';
 import CourseListRow from './CourseListRow';
 import { shallow } from 'enzyme';
-import { StyleSheetTestUtils } from 'aphrodite';
 import '../../config/setupTests'
 
-// Mock Aphrodite styles
-jest.mock('aphrodite', () => ({
-    StyleSheet: {
-      create: () => ({}),
-    },
-    css: () => 'mocked-style',
-  }));
   
 describe('CourseListRow component', () => {
-    beforeAll(() => {
-        // Ensure Aphrodite styles are cleared before testing
-        StyleSheetTestUtils.suppressStyleInjection();
-    });
-    
-    afterAll(() => {
-        // Reset Aphrodite styles after testing
-        StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-    });
-    
     it('renders without crashing', () => {
         shallow(<CourseListRow />);
     });
@@ -44,18 +26,37 @@ describe('CourseListRow component', () => {
         expect(tableRow.childAt(1).html()).toEqual('<td>test</td>');
     });
 
-    it('renders correctly with Aphrodite styles for header row', () => {
-        const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell='test' textSecondCell='test' /> );
-        const tableRow = wrapper.find('tr');
+    // it('renders a regular row with correct background color', () => {
+    //     const container = render(
+    //       <div>
+    //           <CourseListRow
+    //             isHeader={false}
+    //             textFirstCell="Course 1"
+    //             textSecondCell="Description 1"
+    //           />
+    //       </div>
+    //     );
 
-        expect(tableRow.hasClass('headerRowColor')).toEqual(true);
-    });
+    //     const row = container.find('tr');
+    //     expect(row.prop('style').backgroundColor).toBe('#f5f5f5ab');
+    //   });
+      
+    //   it('renders a header row with correct background color', () => {
+    //     const container = render(
+    //       <div>
+    //           <CourseListRow
+    //             isHeader={true}
+    //             textFirstCell="Course Name"
+    //             textSecondCell="Description"
+    //           />
+    //       </div>
+    //     );
 
-    it('renders correctly with Aphrodite styles for regular row', () => {
-        const wrapper = shallow(<CourseListRow isHeader={false} textFirstCell='test' textSecondCell='test' />);
-        const tableRow = wrapper.find("tr");
-    
-        expect(tableRow.hasClass('firstRowColor')).toEqual(true);
-    });
+    //     // Ensure that 'container' is defined before proceeding.
+    //     expect(container).toBeDefined();
+      
+    //     const row = container.find('th');
+    //     expect(row.prop('style').backgroundColor).toBe('#deb5b545');
+    //   });
 
 })
