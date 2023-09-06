@@ -41,7 +41,7 @@ class Notifications extends Component {
                             <ul>
                                 {this.props.listNotifications.map(notification => (
                                 <NotificationItem key={notification.id} type={notification.type} value={notification.value} html={notification.html} 
-                                markAsRead={this.markAsRead} id={notification.id} />
+                                markAsRead={this.markAsRead} id={notification.id} className={css(styles.item)}/>
                                 ))}
                             </ul>
                             </>
@@ -63,12 +63,16 @@ const styles = StyleSheet.create({
     notification: {
         border: '1px dashed red',
         padding: '1rem',
-        margin: '1rem 2rem 2rem 0'
+        margin: '1rem 2rem 2rem 0',
+        "@media (max-width: 900px)": {
+            fontSize: '20px',
+        }
     },
 
     menuItem: {
         textAlign: 'right',
-        margin: '1rem'
+        margin: '1rem',
+        
     },
 
     img: {

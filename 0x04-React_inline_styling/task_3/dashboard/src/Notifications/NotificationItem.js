@@ -19,10 +19,22 @@ const styles = StyleSheet.create({
 
   defaultStyling:  {
       color: 'blue',
+      "@media (max-width: 900px)": {
+        fontSize: '20px',
+        padding: '10px 8px',
+        borderBottom: '1px solid black',
+        listStyleType: 'none'
+    }
   },
   
   urgentStyling:  {
       color: 'red',
+      "@media (max-width: 900px)": {
+        fontSize: '20px',
+        padding: '10px 8px',
+        borderBottom: '1px solid black',
+        listStyleType: 'none' 
+    }
   }
 });
 

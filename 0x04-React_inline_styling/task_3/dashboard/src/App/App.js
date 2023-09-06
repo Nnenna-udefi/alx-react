@@ -15,7 +15,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row-reverse',
     justifyContent: 'space-between',
-    borderBottom: '2px solid rgb(217, 37, 37)'
+    borderBottom: '2px solid rgb(217, 37, 37)',
+
+    "@media (max-width: 900px)": {
+      display: "block",
+  }
   }
 })
 
@@ -67,7 +71,7 @@ class App extends Component {
             <Login />
           </BodySectionWithMarginBottom>)
         }
-        <BodySection title='News from the School' >
+        <BodySection title='News from the School' className={css(styles.borderStyling)}>
           <p>lots of news and so on</p>
         </BodySection>
         <Footer />
