@@ -1,22 +1,6 @@
 import React from "react";
-// import './Login.css';
 import { StyleSheet, css } from 'aphrodite';
 
-const styles = StyleSheet.create({
-    appBody: {
-        height: '50vh',
-        borderBottom: '2px solid rgb(217, 37, 37)',
-        padding: '1.5rem 3rem 0'
-    },
-
-    label: {
-        marginRight: '1rem',
-    },
-
-    input: {
-        marginRight: '1rem',
-    }
-})
 
 function Login() {
     const handleLabelClick = (idInput) => {
@@ -39,4 +23,21 @@ function Login() {
         </div>
     );
 }
+
+const styles = StyleSheet.create({
+    appBody: {
+        height: '50vh',
+        borderBottom: '2px solid rgb(217, 37, 37)',
+        padding: '1.5rem 3rem 0'
+    },
+
+    label: {
+        margin: '1rem',
+    },
+
+    input: {
+        margin: '1rem',
+    }
+});
+
 export default Login

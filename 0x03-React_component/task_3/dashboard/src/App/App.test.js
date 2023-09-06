@@ -92,4 +92,4 @@ describe('App tests', () => {
         alertMock.mockRestore();
         jest.clearAllMocks();
       });
-})
+});

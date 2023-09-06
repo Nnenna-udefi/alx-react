@@ -11,6 +11,15 @@ import Footer from "../Footer/Footer";
 import Notifications from '../Notifications/Notifications';
 import CourseList from '../CourseList/CourseList';
 
+import { StyleSheetTestUtils } from "aphrodite";
+
+beforeEach(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+});
+
 const listNotifications = [
     { id: 1, type: 'default', value: 'New course available', html: null },
     { id: 2, type: 'urgent', value: 'New resume available', html: null },
