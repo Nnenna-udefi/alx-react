@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import './Login.css';
 import { StyleSheet, css } from 'aphrodite';
 
@@ -45,24 +45,56 @@ const styles = StyleSheet.create({
 })
 
 function Login() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [enableSubmit, setEnableSubmit] = useState(false)
+
     const handleLabelClick = (idInput) => {
         const input = document.getElementById(idInput);
         if (input) {
           input.focus();
         }
-        };
+    };
+
+    const handleLoginSubmit = (e) => {
+        e.preventDefault();
+        setIsLoggedIn(true);
+    };
+
+    useEffect(() => {
+        if (email !== '' && password !== '') {
+            setEnableSubmit(true);
+        } else {
+            if (enableSubmit !== false) {
+                setEnableSubmit(false);
+            }
+        }
+    }, [email, password]);
+
+    // handleChangeEmail and handleChangePassword that the two inputs will call when the value in the input field is changed.
+    // The local state should update with what the user is typing
+    const handleChangeEmail = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleChangePassword = (e) => {
+        setPassword(e.target.value);
+    }
         
     return (
         <div className={css(styles.appBody)}>
             <p>Login to access the full dashboard</p>
-            <form>
+            <form onSubmit={handleLoginSubmit}>
                 <label className={css(styles.label)} htmlFor="email" onClick={() => handleLabelClick('email')}>
                 Email Address:</label>
-                <input className={css(styles.input)} type="email" name="email" id="email" />
+                <input className={css(styles.input)} type="email" name="email" id="email"
+                 value={email} onChange={handleChangeEmail} />
                 <label className={css(styles.label)} htmlFor="password" onClick={() => handleLabelClick('password')}>
                 Password:</label>
-                <input className={css(styles.input)} type="password" name="password" id="password" />
-                <button className={css(styles.button)}>OK</button>
+                <input className={css(styles.input)} type="password" name="password" id="password" 
+                value={password} onChange={handleChangePassword}/>
+                <input type="submit" value='OK' className={css(styles.button)} disabled={!enableSubmit} />
             </form>
             
         </div>
