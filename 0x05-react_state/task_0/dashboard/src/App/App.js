@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
       display: "block",
   }
   }
-})
+});
 
 class App extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class App extends Component {
 
     this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
     this.handleHideDrawer = this.handleHideDrawer.bind(this);
-  }
+  };
 
   listCourses = [
     {id: 1, name: 'ES6', credit: 60},
@@ -67,11 +67,11 @@ class App extends Component {
 
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyDown);
-  }
+  };
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyDown);
-  }
+  };
  
   render() {
     return (

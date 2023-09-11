@@ -26,7 +26,7 @@ const CourseListRow = ({ isHeader=false, textFirstCell, textSecondCell=null }) =
   const handleCheckChange = (e) => {
     setChecked(!checked);
   }
-   return (
+  return (
     <tr style={selectedStyle} className={checked ? css(styles.headerRowColor) : css(styles.firstRowColor)}> 
       {isHeader ? (
         textSecondCell === null ? (
