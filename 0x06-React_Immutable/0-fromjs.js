@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { Immutable } from 'immutable';
 
 const getImmutableObject = (object) => {
     const immutableMap = Immutable.fromJS(object);
@@ -6,4 +6,4 @@ const getImmutableObject = (object) => {
     return immutableMap;
 };
 
-module.exports = getImmutableObject;
+export default getImmutableObject;
