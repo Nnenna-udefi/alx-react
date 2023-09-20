@@ -1,5 +1,5 @@
 import { getAllNotificationsByUser } from './notifications';
-import notificationJson from '../notifications.json';
+import notificationJson from '../../notifications.json';
 
 
 const mockUserId = '5debd764a7c57c7839d722e9';
