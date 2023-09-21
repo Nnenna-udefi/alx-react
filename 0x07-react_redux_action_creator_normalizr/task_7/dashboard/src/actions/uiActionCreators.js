@@ -31,7 +31,7 @@ export const loginSuccess = () => {
 
 export const loginFailure = () => {
     return {
-        type: LOGIN_SUCCESS,
+        type: LOGIN_FAILURE,
     }
 };
 
