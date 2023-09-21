@@ -1,3 +1,4 @@
+require("@inrupt/jest-jsdom-polyfills");
 module.exports = {
   // ... other config options
   setupFiles: [
