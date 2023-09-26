@@ -2,7 +2,7 @@
 export const filterTypeSelected = state => state.get('filter');
 
 // return lists of notifications in map format
-export const getNotifications = state => state.get('notification');
+export const getNotifications = state => state.get('notifications');
 
 // return lists of unread notifications in map format
 export const getUnreadNotifications = state => {
@@ -10,10 +10,9 @@ export const getUnreadNotifications = state => {
     const unreadNotifications = new Map();
 
     allNotifications.forEach((notification, id) => {
-        if (!notification.read) {
+        if (!notification.get('read')) {
             unreadNotifications.set(id, notification);
         };
-
-        return unreadNotifications;
-    })
+    });
+    return unreadNotifications;
 }
