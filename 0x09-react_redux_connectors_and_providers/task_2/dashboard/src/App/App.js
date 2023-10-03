@@ -45,11 +45,6 @@ export class App extends Component {
         {id: 3, type: 'urgent', value: null, html: getLatestNotification(), },
       ],
     };
-
-    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
-    this.handleHideDrawer = this.handleHideDrawer.bind(this);
-    this.logIn = this.logIn.bind(this);
-    this.logOut = this.logOut.bind(this);
   }
 
   listCourses = [
