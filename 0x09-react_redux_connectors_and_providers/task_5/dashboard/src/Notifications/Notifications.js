@@ -3,7 +3,10 @@ import { StyleSheet, css } from 'aphrodite';
 import closebtn from '../assets/close-icon.png';
 import NotificationItem from './NotificationItem';
 import PropTypes from 'prop-types';
-import { NotificationItemShape } from './NotificationItemShape'
+import { NotificationItemShape } from './NotificationItemShape';
+import { fetchNotifications } from '../actions/notificationActionCreators';
+import { connect } from 'react-redux';
+import { markAsAread } from '../actions/notificationActionCreators';
 
 
 const opacityKeyframes = {
@@ -60,25 +63,34 @@ const styles = StyleSheet.create({
 });
 
 
-export default class Notifications extends React.PureComponent {
+export class Notifications extends React.PureComponent {
   static propTypes = {
     displayDrawer: PropTypes.bool,
-    listNotifications: PropTypes.arrayOf(NotificationItemShape),
-    markNotificationAsRead: PropTypes.func,
+    getUnreadNotifications: PropTypes.func,
     showDrawer: PropTypes.func,
-    hideDrawer: PropTypes.func
+    hideDrawer: PropTypes.func,
+    fetchNotifications: PropTypes.func,
+    messages: PropTypes.arrayOf(PropTypes.object),
   }
 
   static defaultProps = {
       displayDrawer: false,
-      listNotifications: [],
-      markNotificationAsRead: () => {}
+      markNotificationAsRead: () => {},
+      fetchNotifications: () => {},
+      getUnreadNotifications: () => {},
+      messages: []
+  };
+
+  componentDidMount() {
+    this.props.fetchNotifications()
   }
+
+  getUnreadNotifications
 
   render() {
     const loadNotifs = () => {
       let rows = <></>
-      const notifArray = this.props.listNotifications
+      const notifArray = this.props.messages
       if (notifArray.length == 0){
           return <p>No new notification for now</p>
       } else {
@@ -125,4 +137,14 @@ export default class Notifications extends React.PureComponent {
     </>
     )
   }
-}
+};
+
+const mapStateToProps = (state) => ({
+  messages: state.notifications.get('notifications')
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchNotifications: () => dispatch(fetchNotifications())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Notifications)
