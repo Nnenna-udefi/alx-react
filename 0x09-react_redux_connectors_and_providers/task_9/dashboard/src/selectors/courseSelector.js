@@ -1,0 +1,1 @@
+export const getCoursesList = (state) => state.courses.valueSeq()
