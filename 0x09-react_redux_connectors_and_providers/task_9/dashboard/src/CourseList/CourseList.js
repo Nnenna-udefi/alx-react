@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import CourseListRow from './CourseListRow';
 import PropTypes from 'prop-types';
-import CourseShape from './CourseShape';
 import { StyleSheet, css } from 'aphrodite';
 import { connect } from 'react-redux';
 import { fetchCourses, selectCourse, unSelectCourse} from '../actions/courseActionCreators';
@@ -58,7 +57,6 @@ export const CourseList = ({ listCourses, fetchCourses, selectCourse, unSelectCo
 };
 
 CourseList.propTypes = {
-    listCourses: PropTypes.arrayOf(CourseShape),
     fetchCourses: PropTypes.func.isRequired,
     selectCourse: PropTypes.func.isRequired,
     unSelectCourse: PropTypes.func.isRequired

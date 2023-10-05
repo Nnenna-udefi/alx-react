@@ -3,11 +3,6 @@ import { StyleSheet, css } from 'aphrodite';
 import closebtn from '../assets/close-icon.png';
 import NotificationItem from './NotificationItem';
 import PropTypes from 'prop-types';
-import { fetchNotifications } from '../actions/notificationActionCreators';
-import { connect } from 'react-redux';
-import { markAsAread } from '../actions/notificationActionCreators';
-import { getUnreadNotificationsByType } from '../selectors/notificationSelector';
-import { setNotificationFilter } from '../actions/notificationActionCreators';
 
 
 const opacityKeyframes = {
